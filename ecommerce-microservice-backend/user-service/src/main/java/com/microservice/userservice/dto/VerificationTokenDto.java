@@ -1,35 +1,32 @@
 package com.microservice.userservice.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.microservice.userservice.constant.AppConstant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class UserDto implements Serializable {
+public class VerificationTokenDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private Integer userId;
+    private Integer verificationTokenId;
 
-    private String firstName;
+    private String token;
 
-    private String lastName;
-
-    private String imageUrl;
-
-    private String email;
-
-    private String phone;
-
-    @JsonInclude(value = JsonInclude.Include.NON_NULL)
-    private Set<AddressDto> addressDtos;
+    @JsonFormat(pattern = AppConstant.LOCAL_DATE_FORMAT, shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = AppConstant.LOCAL_DATE_FORMAT)
+    private LocalDate expireDate;
 
     @JsonProperty("credential")
     @JsonInclude(value = JsonInclude.Include.NON_NULL)

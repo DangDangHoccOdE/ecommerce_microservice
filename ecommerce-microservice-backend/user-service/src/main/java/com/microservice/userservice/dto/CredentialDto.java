@@ -6,7 +6,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.selimhorri.app.domain.RoleBasedAuthority;
+import com.microservice.userservice.domain.RoleBasedAuthority;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
