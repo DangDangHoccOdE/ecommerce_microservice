@@ -1,6 +1,7 @@
 package com.microservice.userservice.service.impl;
 
 import com.microservice.userservice.dto.AddressDto;
+import com.microservice.userservice.exception.wrapper.AddressNotFoundException;
 import com.microservice.userservice.helper.AddressMappingHelper;
 import com.microservice.userservice.repository.AddressRepository;
 import com.microservice.userservice.service.AddressService;
@@ -37,26 +38,34 @@ public class AddressServiceImpl implements AddressService {
         log.info("*** AddressDto, service: fetch address by id *");
         return this.addressRepository.findById(addressId)
                 .map(AddressMappingHelper::map)
-                .orElseThrow(() -> new AddressN)
+                .orElseThrow(() -> new AddressNotFoundException(
+                        String.format("### Address with id: %d not found! ###", addressId)
+                ));
     }
 
     @Override
     public AddressDto save(AddressDto addressDto) {
-        return null;
+        log.info("*** AddressDto, service: save address *");
+        return AddressMappingHelper.map(this.addressRepository.save(AddressMappingHelper.map(addressDto)));
     }
 
     @Override
     public AddressDto update(AddressDto addressDto) {
-        return null;
+        log.info("**** AddressDto, service; update address *");
+        return AddressMappingHelper.map(this.addressRepository.save(AddressMappingHelper.map(addressDto)));
     }
 
     @Override
     public void deleteById(Integer addressId) {
-
+        log.info("*** Void, service; delete address by id *");
+        this.addressRepository.deleteById(addressId);
     }
 
     @Override
     public AddressDto update(Integer addressId, AddressDto addressDto) {
-        return null;
+        log.info("*** AddressDto, service; update address with addressId *");
+        return AddressMappingHelper.map(this.addressRepository.save(
+                AddressMappingHelper.map(this.findById(addressId))
+        ));
     }
 }
