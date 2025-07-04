@@ -5,21 +5,25 @@ server:
 spring:
   application:
     name: USER-SERVICE
-
+  config:
+    import: ${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:9296}
+  profiles:
+    active:
+      - dev
 
 resilience4j:
   circuitbreaker:
     instances:
       userService:
-        register-health-indicator: true   #	Tích h?p v?i Spring Boot Actuator ?? theo dõi CB này thông qua /actuator/health
-        event-consumer-buffer-size: 10    # Kích th??c b? ??m cho các s? ki?n (event) nh? SUCCESS, FAILURE,... ?? hi?n th? qua /actuator/circuitbreakerevents
-        automatic-transition-from-open-to-half-open-enabled: true    # T? ??ng chuy?n t? tr?ng thái OPEN sang HALF_OPEN sau wait-duration-in-open-state
-        failure-rate-threshold: 50    # N?u t? l? l?i ? 50% thì CB chuy?n sang OPEN
-        minimum-number-of-calls: 5    # Ch? b?t ??u tính toán t? l? l?i khi có ít nh?t 5 request trong c?a s? tr??t
-        permitted-number-of-calls-in-half-open-state: 3    # Khi ? tr?ng thái HALF_OPEN, cho phép 3 request th? nghi?m ?? quy?t ??nh m? l?i ho?c ?óng CB
-        sliding-window-size: 10    #  Kích th??c c?a s? tr??t (10 l?n g?i g?n nh?t ???c dùng ?? tính toán t? l? l?i). N?u có 11 request ?y request cu
-        wait-duration-in-open-state: 5s   #  Sau 5 giây ? tr?ng thái OPEN, CB s? chuy?n sang HALF_OPEN ?? th? l?i
-        sliding-window-type: COUNT_BASED  #  C?a s? tr??t d?a trên s? l??ng g?i (COUNT), có th? thay b?ng TIME_BASED n?u mu?n d?a trên th?i gian
+        register-health-indicator: true   #	Tï¿½ch h?p v?i Spring Boot Actuator ?? theo dï¿½i CB nï¿½y thï¿½ng qua /actuator/health
+        event-consumer-buffer-size: 10    # Kï¿½ch th??c b? ??m cho cï¿½c s? ki?n (event) nh? SUCCESS, FAILURE,... ?? hi?n th? qua /actuator/circuitbreakerevents
+        automatic-transition-from-open-to-half-open-enabled: true    # T? ??ng chuy?n t? tr?ng thï¿½i OPEN sang HALF_OPEN sau wait-duration-in-open-state
+        failure-rate-threshold: 50    # N?u t? l? l?i ? 50% thï¿½ CB chuy?n sang OPEN
+        minimum-number-of-calls: 5    # Ch? b?t ??u tï¿½nh toï¿½n t? l? l?i khi cï¿½ ï¿½t nh?t 5 request trong c?a s? tr??t
+        permitted-number-of-calls-in-half-open-state: 3    # Khi ? tr?ng thï¿½i HALF_OPEN, cho phï¿½p 3 request th? nghi?m ?? quy?t ??nh m? l?i ho?c ?ï¿½ng CB
+        sliding-window-size: 10    #  Kï¿½ch th??c c?a s? tr??t (10 l?n g?i g?n nh?t ???c dï¿½ng ?? tï¿½nh toï¿½n t? l? l?i). N?u cï¿½ 11 request ?y request cu
+        wait-duration-in-open-state: 5s   #  Sau 5 giï¿½y ? tr?ng thï¿½i OPEN, CB s? chuy?n sang HALF_OPEN ?? th? l?i
+        sliding-window-type: COUNT_BASED  #  C?a s? tr??t d?a trï¿½n s? l??ng g?i (COUNT), cï¿½ th? thay b?ng TIME_BASED n?u mu?n d?a trï¿½n th?i gian
 
 management:
   health:
