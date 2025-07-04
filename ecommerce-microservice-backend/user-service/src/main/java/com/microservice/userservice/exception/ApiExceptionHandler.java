@@ -48,6 +48,16 @@ public class ApiExceptionHandler {
     })
     public <T extends RuntimeException> ResponseEntity<ExceptionMsg> handleApiRequestException(final T e) {
         log.info("**ApiExceptionHandler controller, handle API request");
+
+        final var badRequest = HttpStatus.BAD_REQUEST;
+
+        return new ResponseEntity<>(
+                ExceptionMsg.builder()
+                        .msg("#### " + e.getMessage() + "! ####")
+                        .httpStatus(badRequest)
+                        .timestamp(ZonedDateTime.now(ZoneId.systemDefault()))
+                        .build(), badRequest
+        );
     }
 
 }

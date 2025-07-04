@@ -42,6 +42,19 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>  <!-- Serialize/deserialize các lớp java.time.* -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>  <!-- Gợi ý autocomplete cho các property trong file cấu hình -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -88,7 +101,7 @@
 <!--        <module>cloud-config</module>-->
 <!--        <module>api-gateway</module>-->
 <!--        <module>proxy-client</module>-->
-<!--        <module>user-service</module>-->
+        <module>user-service</module>
 <!--        <module>product-service</module>-->
 <!--        <module>favourite-service</module>-->
 <!--        <module>order-service</module>-->
