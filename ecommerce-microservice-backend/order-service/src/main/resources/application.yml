@@ -1,12 +1,12 @@
 server:
   servlet:
-    context-path: /favourite-service
+    context-path: /order-service
 
 spring:
   config:
     import: ${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:9296}
   application:
-    name: FAVOURITE-SERVICE
+    name: ORDER-SERVICE
   profiles:
     active:
       - dev
@@ -14,7 +14,7 @@ spring:
 resilience4j:
   circuitbreaker:
     instances:
-      favouriteService:
+      orderService:
         register-health-indicator: true
         event-consumer-buffer-size: 10
         automatic-transition-from-open-to-half-open-enabled: true

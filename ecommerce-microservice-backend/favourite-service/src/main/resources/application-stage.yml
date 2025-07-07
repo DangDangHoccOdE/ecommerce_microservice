@@ -1,5 +1,5 @@
 server:
-  port: 8700
+  port: 8300
 
 management:
   endpoints:
@@ -9,8 +9,8 @@ management:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:ecommerce_dev_db;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
+    url: jdbc:mysql://localhost:3306/ecommerce_stage_db
+    username: root
     password:
   jpa:
     show-sql: true
@@ -18,19 +18,14 @@ spring:
       ddl-auto: validate
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         use_sql_comments: true
         format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-  flyway:
-    enabled: true
-    baseline-on-migrate: true
-    validate-on-migrate: true
 
 logging:
+  file:
+    name: src/main/resources/script/stage_log.log
+    clean-history-on-start: true
   level:
     org:
       hibernate:
