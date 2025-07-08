@@ -7,9 +7,9 @@
         <artifactId>ecommerce-microservice-backend</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>order-service</artifactId>
-    <name>order-service</name>
-    <description>order-service</description>
+    <artifactId>product-service</artifactId>
+    <name>product-service</name>
+    <description>product-service</description>
     <packaging>jar</packaging>
     <url/>
     <licenses>
