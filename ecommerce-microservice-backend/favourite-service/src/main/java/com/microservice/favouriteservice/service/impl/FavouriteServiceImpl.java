@@ -2,7 +2,6 @@ package com.microservice.favouriteservice.service.impl;
 
 import com.microservice.favouriteservice.config.client.ProductClient;
 import com.microservice.favouriteservice.config.client.UserClient;
-import com.microservice.favouriteservice.domain.Favourite;
 import com.microservice.favouriteservice.domain.id.FavouriteId;
 import com.microservice.favouriteservice.dto.FavouriteDto;
 import com.microservice.favouriteservice.exception.wrapper.FavouriteNotFoundException;
@@ -25,7 +24,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FavouriteServiceImpl implements FavouriteService {
     private final FavouriteRepository favouriteRepository;
-    private final RestTemplate restTemplate;
 
     @Qualifier("com.microservice.favouriteservice.config.client.ProductClient")
     private final ProductClient productClient;

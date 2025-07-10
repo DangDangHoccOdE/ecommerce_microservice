@@ -1,4 +1,4 @@
-package com.microservice.paymentservice.config.mapper;
+package com.microservice.shippingservice.config.mapper;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
