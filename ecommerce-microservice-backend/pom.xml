@@ -97,16 +97,16 @@
     </dependencyManagement>
 
     <modules>
-<!--        <module>service-discovery</module>-->
-<!--        <module>cloud-config</module>-->
-<!--        <module>api-gateway</module>-->
+        <module>service-discovery</module>
+        <module>cloud-config</module>
+        <module>api-gateway</module>
 <!--        <module>proxy-client</module>-->
         <module>user-service</module>
-<!--        <module>product-service</module>-->
-<!--        <module>favourite-service</module>-->
-<!--        <module>order-service</module>-->
-<!--        <module>shipping-service</module>-->
-<!--        <module>payment-service</module>-->
+        <module>product-service</module>
+        <module>favourite-service</module>
+        <module>order-service</module>
+        <module>shipping-service</module>
+        <module>payment-service</module>
     </modules>
 
     <build>
