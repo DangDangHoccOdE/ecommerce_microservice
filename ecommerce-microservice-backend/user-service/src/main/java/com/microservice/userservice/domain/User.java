@@ -11,11 +11,10 @@ import java.util.Set;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true, exclude = {"address", "credential"})
+@EqualsAndHashCode(exclude = { "address", "credential" })
 @Data
 @Builder
 public class User {
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
